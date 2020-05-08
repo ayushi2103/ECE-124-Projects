@@ -1,0 +1,79 @@
+# do LogicalStep_Lab2_top_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying c:/software/Altera/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied c:/software/Altera/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {N:/ECE124/Lab2/LogicalStep_Lab2_top.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 00:48:58 on Jun 13,2019
+# vcom -reportprogress 300 -93 -work work N:/ECE124/Lab2/LogicalStep_Lab2_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity LogicalStep_Lab2_top
+# -- Compiling architecture SimpleCircuit of LogicalStep_Lab2_top
+# End time: 00:48:58 on Jun 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {N:/ECE124/Lab2/segment7_mux.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 00:48:58 on Jun 13,2019
+# vcom -reportprogress 300 -93 -work work N:/ECE124/Lab2/segment7_mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity segment7_mux
+# -- Compiling architecture syn of segment7_mux
+# End time: 00:48:58 on Jun 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {N:/ECE124/Lab2/SevenSegment.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 00:48:58 on Jun 13,2019
+# vcom -reportprogress 300 -93 -work work N:/ECE124/Lab2/SevenSegment.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SevenSegment
+# -- Compiling architecture Behavioral of SevenSegment
+# End time: 00:48:58 on Jun 13,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {N:/ECE124/Lab2/logic_processor.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 00:48:58 on Jun 13,2019
+# vcom -reportprogress 300 -93 -work work N:/ECE124/Lab2/logic_processor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity logic_processor
+# -- Compiling architecture process_log of logic_processor
+# End time: 00:48:59 on Jun 13,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {N:/ECE124/Lab2/concatenate_sum_mux.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 00:48:59 on Jun 13,2019
+# vcom -reportprogress 300 -93 -work work N:/ECE124/Lab2/concatenate_sum_mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity concatenate_sum_mux
+# -- Compiling architecture mux_logic of concatenate_sum_mux
+# ** Error: N:/ECE124/Lab2/concatenate_sum_mux.vhd(21): (vcom-1339) Selected signal assignment choices cover only 2 out of 9 cases.
+# 
+# ** Error: N:/ECE124/Lab2/concatenate_sum_mux.vhd(26): VHDL Compiler exiting
+# End time: 00:48:59 on Jun 13,2019, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: c:/software/Altera/15.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./LogicalStep_Lab2_top_run_msim_rtl_vhdl.do line 12
+# c:/software/Altera/15.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {N:/ECE124/Lab2/concatenate_sum_mux.vhd}"
