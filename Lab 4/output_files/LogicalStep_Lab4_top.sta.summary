@@ -1,0 +1,185 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'MEALY_SM:INST5|current_state.MOVE'
+Slack : -10.010
+TNS   : -40.131
+
+Type  : Slow 1200mV 85C Model Setup 'pb[3]'
+Slack : -8.530
+TNS   : -24.614
+
+Type  : Slow 1200mV 85C Model Setup 'bin_counter[23]'
+Slack : -5.316
+TNS   : -65.399
+
+Type  : Slow 1200mV 85C Model Setup 'MEALY_SM:INST5|current_state.ERROR'
+Slack : -2.410
+TNS   : -3.645
+
+Type  : Slow 1200mV 85C Model Setup 'clkin_50'
+Slack : -2.337
+TNS   : -36.406
+
+Type  : Slow 1200mV 85C Model Hold 'pb[3]'
+Slack : -2.232
+TNS   : -2.232
+
+Type  : Slow 1200mV 85C Model Hold 'bin_counter[23]'
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clkin_50'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clkin_50'
+Slack : -3.000
+TNS   : -38.688
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pb[3]'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'bin_counter[23]'
+Slack : -1.487
+TNS   : -37.175
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.212
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.443
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'MEALY_SM:INST5|current_state.MOVE'
+Slack : -9.828
+TNS   : -39.589
+
+Type  : Slow 1200mV 0C Model Setup 'pb[3]'
+Slack : -8.499
+TNS   : -24.605
+
+Type  : Slow 1200mV 0C Model Setup 'bin_counter[23]'
+Slack : -4.878
+TNS   : -58.576
+
+Type  : Slow 1200mV 0C Model Setup 'MEALY_SM:INST5|current_state.ERROR'
+Slack : -2.236
+TNS   : -3.558
+
+Type  : Slow 1200mV 0C Model Setup 'clkin_50'
+Slack : -2.002
+TNS   : -30.756
+
+Type  : Slow 1200mV 0C Model Hold 'pb[3]'
+Slack : -2.119
+TNS   : -2.119
+
+Type  : Slow 1200mV 0C Model Hold 'bin_counter[23]'
+Slack : 0.325
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clkin_50'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.501
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.539
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clkin_50'
+Slack : -3.000
+TNS   : -38.688
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pb[3]'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'bin_counter[23]'
+Slack : -1.487
+TNS   : -37.175
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.125
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'MEALY_SM:INST5|current_state.MOVE'
+Slack : -3.557
+TNS   : -12.422
+
+Type  : Fast 1200mV 0C Model Setup 'pb[3]'
+Slack : -2.902
+TNS   : -7.880
+
+Type  : Fast 1200mV 0C Model Setup 'bin_counter[23]'
+Slack : -1.542
+TNS   : -17.954
+
+Type  : Fast 1200mV 0C Model Setup 'MEALY_SM:INST5|current_state.ERROR'
+Slack : -0.452
+TNS   : -0.452
+
+Type  : Fast 1200mV 0C Model Setup 'clkin_50'
+Slack : -0.364
+TNS   : -1.624
+
+Type  : Fast 1200mV 0C Model Hold 'pb[3]'
+Slack : -0.907
+TNS   : -0.982
+
+Type  : Fast 1200mV 0C Model Hold 'bin_counter[23]'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clkin_50'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.159
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clkin_50'
+Slack : -3.000
+TNS   : -31.080
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pb[3]'
+Slack : -3.000
+TNS   : -4.650
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'bin_counter[23]'
+Slack : -1.000
+TNS   : -25.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.MOVE'
+Slack : 0.334
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MEALY_SM:INST5|current_state.ERROR'
+Slack : 0.370
+TNS   : 0.000
+
+------------------------------------------------------------

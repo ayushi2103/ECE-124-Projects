@@ -1,0 +1,200 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+Entity MEALY_SM IS Port
+(
+ clk_input,X_MOTION, Y_MOTION, Extender_Out,X_EQ,X_GT,X_LT,Y_EQ,Y_GT,Y_LT		    			: IN std_logic;
+ rst_n 																							: in	std_logic  := '0';
+ clk_en_X,clk_en_Y, Xcount,Ycount,ERROR_led,Extender_en									: OUT std_logic
+ );
+END ENTITY;
+ 
+
+ Architecture SM of MEALY_SM is
+ 
+
+ 
+ TYPE STATE_NAME_X IS (X_INIT,X_MOVE,X_STOP,X_ERROR);   -- list all the STATE_NAMES values
+
+ TYPE STATE_NAME_Y IS (Y_INIT,Y_MOVE,Y_STOP,Y_ERROR);
+ 
+ SIGNAL current_state_X, next_state_X	:  STATE_NAME_X;     	-- signals of type STATE_NAMES
+ SIGNAL current_state_Y, next_state_Y	:  STATE_NAME_Y;     	-- signals of type STATE_NAMES
+ 
+ SIGNAL EXTD_X : std_logic;
+ SIGNAL EXTD_Y : std_logic;
+ SIGNAL led_X  : std_logic := '0';
+ SIGNAL led_Y : std_logic := '0';
+ 
+ --signal EXTD_OUT :std_logic;
+ 
+ 
+ BEGIN
+--EXTD_OUT <= Extender_Out;
+ --------------------------------------------------------------------------------
+ --State Machine:
+ --------------------------------------------------------------------------------
+
+ -- REGISTER_LOGIC PROCESS:
+ 
+Register_Section: PROCESS (clk_input, rst_n, next_state_X,next_state_Y)  -- this process synchronizes the activity to a clock
+BEGIN
+	IF (rst_n = '0') THEN
+		current_state_X <= X_INIT;
+		current_state_Y <= Y_INIT;
+	ELSIF(rising_edge(clk_input)) THEN
+		current_state_X <= next_state_X;
+		current_state_Y <= next_state_Y;
+	END IF;
+END PROCESS;	
+
+
+
+-- TRANSITION LOGIC PROCESS
+
+Transition_Section_X: PROCESS (current_state_X, X_MOTION, X_EQ, X_GT,X_LT, Extender_Out) 
+
+BEGIN
+
+     CASE current_state_X IS
+         WHEN X_INIT =>
+				next_state_X <= X_INIT;
+				IF(X_MOTION = '0' AND X_EQ = '0' AND Extender_Out = '0')	THEN
+					next_state_X <= X_MOVE;
+				ELSIF (X_EQ = '1') THEN
+					next_state_X <= X_STOP;
+				END IF;
+
+			WHEN X_MOVE =>	
+				IF(Extender_Out = '1') THEN
+					next_state_X <= X_ERROR;
+				ELSIF (X_MOTION='0' AND (X_LT = '1' OR X_GT = '1')) THEN
+					next_state_X <= X_MOVE;
+				ELSIF(X_MOTION='1' OR X_EQ = '1') THEN
+					next_state_X <= X_STOP;	
+				END IF;
+					
+         WHEN X_STOP =>
+				next_state_X <= X_STOP;
+				IF(X_MOTION='0') THEN
+					next_state_X <= X_MOVE;
+				END IF;
+				
+			WHEN X_ERROR =>
+				next_state_X <= X_ERROR;
+				IF(Extender_Out = '0') THEN
+					next_state_X <= X_STOP;
+				END IF;
+ 		END CASE;
+ END PROCESS;
+ 
+ -- DECODER SECTION PROCESS
+
+Decoder_Section_X: PROCESS (current_state_X, X_MOTION, X_EQ, X_GT,X_LT, Extender_Out) 
+
+BEGIN
+     CASE current_state_X IS
+			WHEN X_INIT =>
+				EXTD_X <= '0';
+         WHEN X_MOVE =>
+				EXTD_X <= '0';
+				clk_en_X <= '1';
+				IF(X_MOTION='0' AND X_GT = '1') THEN
+					Xcount <= '0';
+				ELSIF(X_MOTION='1' OR X_EQ = '1') THEN
+					clk_en_X <= '0';
+				ELSIF (X_MOTION='0' AND X_LT = '1') THEN
+					Xcount <= '1';
+				END IF;
+			
+			WHEN X_STOP =>
+				EXTD_X <= '0';
+				IF (X_EQ = '1') THEN
+					EXTD_X <= '1';
+				END IF;
+				
+			WHEN X_ERROR =>
+				led_X <= '1';
+				IF(Extender_Out = '0') THEN
+					led_X <= '0';
+				END IF;
+		END CASE;
+END PROCESS;
+
+
+ Transition_Section_Y: PROCESS (current_state_Y, Y_MOTION, Y_EQ, Y_GT,Y_LT, Extender_Out) 
+
+BEGIN
+     CASE current_state_Y IS
+         WHEN Y_INIT =>
+				next_state_Y <= Y_INIT;
+				IF(Y_MOTION = '0' AND Y_EQ = '0' AND Extender_Out = '0')	THEN
+					next_state_Y <= Y_MOVE;
+				ELSIF (Y_EQ = '1') THEN
+					next_state_Y <= Y_STOP;
+				ELSIF (Extender_Out = '1') THEN
+					next_state_Y <= Y_ERROR;
+				END IF;
+
+			WHEN Y_MOVE =>
+				IF (Extender_Out = '1') THEN
+					next_state_Y <= Y_ERROR;		
+				ELSIF(Y_MOTION='0' AND (Y_LT = '1' OR Y_GT = '1')) THEN
+					next_state_Y <= Y_MOVE;
+				ELSIF(Y_MOTION='1' OR Y_EQ = '1') THEN
+					next_state_Y <= Y_STOP;
+				END IF;
+					
+         WHEN Y_STOP =>
+				next_state_Y <= Y_STOP;
+				IF(Y_MOTION='0') THEN
+					next_state_Y <= Y_MOVE;
+				END IF;
+				
+			WHEN Y_ERROR =>
+				next_state_Y <= Y_ERROR;
+				IF(Extender_Out = '0') THEN
+					next_state_Y <= Y_STOP;
+				END IF;
+ 		END CASE;
+END PROCESS;
+ 
+  -- DECODER SECTION PROCESS
+
+Decoder_Section_Y: PROCESS (current_state_Y, Y_MOTION, Y_EQ, Y_GT,Y_LT, Extender_Out) 
+
+BEGIN
+     CASE current_state_Y IS
+			WHEN Y_INIT =>
+				EXTD_Y <= '0';
+         WHEN Y_MOVE =>
+				EXTD_Y <= '0';
+				clk_en_Y <= '1';
+				IF(Y_MOTION='0' AND Y_GT = '1') THEN
+					Ycount <= '0';
+				ELSIF(Y_MOTION='1' OR Y_EQ = '1') THEN
+					clk_en_Y <= '0';
+				ELSIF (Y_MOTION='0' AND Y_LT = '1') THEN
+					Ycount <= '1';
+				END IF;
+			
+			WHEN Y_STOP =>
+				EXTD_Y <= '0';
+				IF (Y_EQ = '1') THEN
+					EXTD_Y <= '1';
+				END IF;
+				
+			WHEN Y_ERROR =>
+				led_Y <= '1';
+				IF(Extender_Out = '0') THEN
+					led_Y <= '0';
+				END IF;
+	END CASE;
+END PROCESS;
+
+ 
+ ERROR_led <= led_X OR led_Y;
+ Extender_en <= EXTD_X AND EXTD_Y;
+ 
+ END ARCHITECTURE SM;

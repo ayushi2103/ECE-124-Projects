@@ -1,0 +1,569 @@
+Analysis & Synthesis report for LogicalStep_Lab4_top
+Thu Jul 18 06:45:44 2019
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |LogicalStep_Lab4_top|Error_SM:INST10|current_state
+  9. State Machine - |LogicalStep_Lab4_top|Error_SM:INST9|current_state
+ 10. State Machine - |LogicalStep_Lab4_top|MEALY_SM:INST5|current_state
+ 11. State Machine - |LogicalStep_Lab4_top|MOORE_SM2:INST8|current_state
+ 12. State Machine - |LogicalStep_Lab4_top|MOORE_SM:INST6|current_state
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Port Connectivity Checks: "Error_SM:INST10"
+ 18. Port Connectivity Checks: "Error_SM:INST9"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jul 18 06:45:44 2019           ;
+; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Standard Edition ;
+; Revision Name                      ; LogicalStep_Lab4_top                            ;
+; Top-level Entity Name              ; LogicalStep_Lab4_top                            ;
+; Family                             ; MAX 10                                          ;
+; Total logic elements               ; 136                                             ;
+;     Total combinational functions  ; 136                                             ;
+;     Dedicated logic registers      ; 49                                              ;
+; Total registers                    ; 49                                              ;
+; Total pins                         ; 31                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                     ; Setting              ; Default Value        ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                     ; 10M08SAE144C8G       ;                      ;
+; Top-level entity name                                                      ; LogicalStep_Lab4_top ; LogicalStep_Lab4_top ;
+; Family name                                                                ; MAX 10               ; Cyclone V            ;
+; Use smart compilation                                                      ; Off                  ; Off                  ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                                ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                   ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                                        ; Off                  ; Off                  ;
+; Preserve fewer node names                                                  ; On                   ; On                   ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                  ; Off                  ;
+; Verilog Version                                                            ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                               ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                   ; Auto                 ; Auto                 ;
+; Safe State Machine                                                         ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                             ; On                   ; On                   ;
+; Extract VHDL State Machines                                                ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                          ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                 ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                             ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                  ; On                   ; On                   ;
+; Parallel Synthesis                                                         ; On                   ; On                   ;
+; DSP Block Balancing                                                        ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                         ; On                   ; On                   ;
+; Power-Up Don't Care                                                        ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                               ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                 ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                       ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                     ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                      ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                        ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                  ; Off                  ;
+; Optimization Technique                                                     ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                         ; 70                   ; 70                   ;
+; Auto Carry Chains                                                          ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                       ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                       ; On                   ; On                   ;
+; Auto RAM Replacement                                                       ; On                   ; On                   ;
+; Auto DSP Block Replacement                                                 ; On                   ; On                   ;
+; Auto Shift Register Replacement                                            ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                              ; On                   ; On                   ;
+; Strict RAM Replacement                                                     ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                          ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                     ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                                   ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                      ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                         ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                              ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                          ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                    ; On                   ; On                   ;
+; Report Parameter Settings                                                  ; On                   ; On                   ;
+; Report Source Assignments                                                  ; On                   ; On                   ;
+; Report Connectivity Checks                                                 ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                      ; 2                    ; 2                    ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                          ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                            ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                  ; 100                  ;
+; Clock MUX Protection                                                       ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                ; Off                  ; Off                  ;
+; Block Design Naming                                                        ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                  ; Off                  ; Off                  ;
+; Synthesis Effort                                                           ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                         ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                     ; On                   ; On                   ;
+; Synthesis Seed                                                             ; 1                    ; 1                    ;
++----------------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                ; Library ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
+; LogicalStep_Lab4_top.vhd         ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd    ;         ;
+; segment7_mux.vhd                 ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/segment7_mux.vhd            ;         ;
+; SevenSegment.vhd                 ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/SevenSegment.vhd            ;         ;
+; compx4.vhd                       ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/compx4.vhd                  ;         ;
+; compx1.vhd                       ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/compx1.vhd                  ;         ;
+; Bidir_shift_reg.vhd              ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/Bidir_shift_reg.vhd         ;         ;
+; U_D_Bin_Counter4bit.vhd          ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/U_D_Bin_Counter4bit.vhd     ;         ;
+; Mealy_SM.vhd                     ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/Mealy_SM.vhd                ;         ;
+; Moore_SM.vhd                     ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/Moore_SM.vhd                ;         ;
+; output_files/ErrorFlash.vhd      ; yes             ; User VHDL File        ; N:/ECE124/Lab 4/output_files/ErrorFlash.vhd ;         ;
+; moore_sm2.vhd                    ; yes             ; Auto-Found VHDL File  ; N:/ECE124/Lab 4/moore_sm2.vhd               ;         ;
++----------------------------------+-----------------+-----------------------+---------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 136             ;
+;                                             ;                 ;
+; Total combinational functions               ; 136             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 57              ;
+;     -- 3 input functions                    ; 36              ;
+;     -- <=2 input functions                  ; 43              ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 108             ;
+;     -- arithmetic mode                      ; 28              ;
+;                                             ;                 ;
+; Total registers                             ; 49              ;
+;     -- Dedicated logic registers            ; 49              ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 31              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; bin_counter[23] ;
+; Maximum fan-out                             ; 26              ;
+; Total fan-out                               ; 598             ;
+; Average fan-out                             ; 2.42            ;
++---------------------------------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
++--------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; LC Combinationals ; LC Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                             ; Library Name ;
++--------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+--------------+
+; |LogicalStep_Lab4_top          ; 136 (32)          ; 49 (24)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 31   ; 0            ; 0          ; |LogicalStep_Lab4_top                           ; work         ;
+;    |Bidir_shift_reg:INST7|     ; 4 (4)             ; 4 (4)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|Bidir_shift_reg:INST7     ; work         ;
+;    |Compx4:INST2|              ; 2 (2)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|Compx4:INST2              ; work         ;
+;    |Compx4:INST4|              ; 2 (2)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|Compx4:INST4              ; work         ;
+;    |Error_SM:INST10|           ; 1 (1)             ; 1 (1)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|Error_SM:INST10           ; work         ;
+;    |MEALY_SM:INST5|            ; 46 (46)           ; 4 (4)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|MEALY_SM:INST5            ; work         ;
+;    |MOORE_SM2:INST8|           ; 2 (2)             ; 1 (1)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|MOORE_SM2:INST8           ; work         ;
+;    |MOORE_SM:INST6|            ; 14 (14)           ; 7 (7)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|MOORE_SM:INST6            ; work         ;
+;    |SevenSegment:INST11|       ; 7 (7)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|SevenSegment:INST11       ; work         ;
+;    |SevenSegment:INST12|       ; 7 (7)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|SevenSegment:INST12       ; work         ;
+;    |U_D_Bin_Counter4bit:INST1| ; 6 (6)             ; 4 (4)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|U_D_Bin_Counter4bit:INST1 ; work         ;
+;    |U_D_Bin_Counter4bit:INST3| ; 6 (6)             ; 4 (4)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|U_D_Bin_Counter4bit:INST3 ; work         ;
+;    |segment7_mux:INST13|       ; 7 (7)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |LogicalStep_Lab4_top|segment7_mux:INST13       ; work         ;
++--------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |LogicalStep_Lab4_top|Error_SM:INST10|current_state                              ;
++-------------------------+-------------------------+------------------------+---------------------+
+; Name                    ; current_state.error_off ; current_state.error_on ; current_state.start ;
++-------------------------+-------------------------+------------------------+---------------------+
+; current_state.start     ; 0                       ; 0                      ; 0                   ;
+; current_state.error_on  ; 0                       ; 1                      ; 1                   ;
+; current_state.error_off ; 1                       ; 0                      ; 1                   ;
++-------------------------+-------------------------+------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |LogicalStep_Lab4_top|Error_SM:INST9|current_state                               ;
++-------------------------+-------------------------+------------------------+---------------------+
+; Name                    ; current_state.error_off ; current_state.error_on ; current_state.start ;
++-------------------------+-------------------------+------------------------+---------------------+
+; current_state.start     ; 0                       ; 0                      ; 0                   ;
+; current_state.error_on  ; 0                       ; 1                      ; 1                   ;
+; current_state.error_off ; 1                       ; 0                      ; 1                   ;
++-------------------------+-------------------------+------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - |LogicalStep_Lab4_top|MEALY_SM:INST5|current_state                                       ;
++---------------------+---------------------+--------------------+--------------------+--------------------+
+; Name                ; current_state.ERROR ; current_state.STOP ; current_state.MOVE ; current_state.INIT ;
++---------------------+---------------------+--------------------+--------------------+--------------------+
+; current_state.INIT  ; 0                   ; 0                  ; 0                  ; 0                  ;
+; current_state.MOVE  ; 0                   ; 0                  ; 1                  ; 1                  ;
+; current_state.STOP  ; 0                   ; 1                  ; 0                  ; 1                  ;
+; current_state.ERROR ; 1                   ; 0                  ; 0                  ; 1                  ;
++---------------------+---------------------+--------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |LogicalStep_Lab4_top|MOORE_SM2:INST8|current_state                              ;
++-------------------------+-------------------------+------------------------+---------------------+
+; Name                    ; current_state.light_off ; current_state.light_on ; current_state.start ;
++-------------------------+-------------------------+------------------------+---------------------+
+; current_state.start     ; 0                       ; 0                      ; 0                   ;
+; current_state.light_on  ; 0                       ; 1                      ; 1                   ;
+; current_state.light_off ; 1                       ; 0                      ; 1                   ;
++-------------------------+-------------------------+------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LogicalStep_Lab4_top|MOORE_SM:INST6|current_state                                                                                                                                                      ;
++------------------------------+-------------------------+------------------------------+--------------------------+------------------------+-----------------------------+-------------------------+---------------------+
+; Name                         ; current_state.Retracted ; current_state.Retracter_hold ; current_state.Retracting ; current_state.Extended ; current_state.Extender_hold ; current_state.Extending ; current_state.Start ;
++------------------------------+-------------------------+------------------------------+--------------------------+------------------------+-----------------------------+-------------------------+---------------------+
+; current_state.Start          ; 0                       ; 0                            ; 0                        ; 0                      ; 0                           ; 0                       ; 0                   ;
+; current_state.Extending      ; 0                       ; 0                            ; 0                        ; 0                      ; 0                           ; 1                       ; 1                   ;
+; current_state.Extender_hold  ; 0                       ; 0                            ; 0                        ; 0                      ; 1                           ; 0                       ; 1                   ;
+; current_state.Extended       ; 0                       ; 0                            ; 0                        ; 1                      ; 0                           ; 0                       ; 1                   ;
+; current_state.Retracting     ; 0                       ; 0                            ; 1                        ; 0                      ; 0                           ; 0                       ; 1                   ;
+; current_state.Retracter_hold ; 0                       ; 1                            ; 0                        ; 0                      ; 0                           ; 0                       ; 1                   ;
+; current_state.Retracted      ; 1                       ; 0                            ; 0                        ; 0                      ; 0                           ; 0                       ; 1                   ;
++------------------------------+-------------------------+------------------------------+--------------------------+------------------------+-----------------------------+-------------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; MEALY_SM:INST5|ERROR_led                            ; MEALY_SM:INST5|current_state.ERROR ; yes                    ;
+; MOORE_SM2:INST8|led                                 ; GND                                ; yes                    ;
+; MEALY_SM:INST5|clk_en_Y                             ; MEALY_SM:INST5|current_state.MOVE  ; yes                    ;
+; MEALY_SM:INST5|Ycount                               ; MEALY_SM:INST5|Ycount              ; yes                    ;
+; MEALY_SM:INST5|clk_en_X                             ; MEALY_SM:INST5|current_state.MOVE  ; yes                    ;
+; MEALY_SM:INST5|Xcount                               ; MEALY_SM:INST5|Xcount              ; yes                    ;
+; MEALY_SM:INST5|Extender_en                          ; MEALY_SM:INST5|current_state.ERROR ; yes                    ;
+; MEALY_SM:INST5|next_state.ERROR_200                 ; MEALY_SM:INST5|Selector8           ; yes                    ;
+; MEALY_SM:INST5|next_state.MOVE_226                  ; MEALY_SM:INST5|Selector8           ; yes                    ;
+; MEALY_SM:INST5|next_state.STOP_213                  ; MEALY_SM:INST5|Selector8           ; yes                    ;
+; MEALY_SM:INST5|next_state.INIT_239                  ; MEALY_SM:INST5|Selector8           ; yes                    ;
+; Number of user-specified and inferred latches = 11  ;                                    ;                        ;
++-----------------------------------------------------+------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++-----------------------------------------+-----------------------------------------------------+
+; Register name                           ; Reason for Removal                                  ;
++-----------------------------------------+-----------------------------------------------------+
+; segment7_mux:INST13|\clk_proc:COUNT[0]  ; Merged with bin_counter[0]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[1]  ; Merged with bin_counter[1]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[2]  ; Merged with bin_counter[2]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[3]  ; Merged with bin_counter[3]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[4]  ; Merged with bin_counter[4]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[5]  ; Merged with bin_counter[5]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[6]  ; Merged with bin_counter[6]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[7]  ; Merged with bin_counter[7]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[8]  ; Merged with bin_counter[8]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[9]  ; Merged with bin_counter[9]                          ;
+; segment7_mux:INST13|\clk_proc:COUNT[10] ; Merged with bin_counter[10]                         ;
+; Error_SM:INST10|current_state.start     ; Lost fanout                                         ;
+; Error_SM:INST10|current_state.error_on  ; Lost fanout                                         ;
+; Error_SM:INST9|current_state.start      ; Lost fanout                                         ;
+; Error_SM:INST9|current_state.error_on   ; Lost fanout                                         ;
+; MOORE_SM2:INST8|current_state.start     ; Lost fanout                                         ;
+; MOORE_SM2:INST8|current_state.light_off ; Lost fanout                                         ;
+; Error_SM:INST9|current_state.error_off  ; Merged with Error_SM:INST10|current_state.error_off ;
+; bin_counter[24,25]                      ; Lost fanout                                         ;
+; Total Number of Removed Registers = 20  ;                                                     ;
++-----------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 49    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 25    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |LogicalStep_Lab4_top|segment7_mux:INST13|DOUT[4] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "Error_SM:INST10" ;
++--------+-------+----------+-----------------+
+; Port   ; Type  ; Severity ; Details         ;
++--------+-------+----------+-----------------+
+; input1 ; Input ; Info     ; Stuck at GND    ;
++--------+-------+----------+-----------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "Error_SM:INST9" ;
++--------+-------+----------+----------------+
+; Port   ; Type  ; Severity ; Details        ;
++--------+-------+----------+----------------+
+; input1 ; Input ; Info     ; Stuck at GND   ;
++--------+-------+----------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 49                          ;
+;     CLR               ; 15                          ;
+;     ENA CLR           ; 10                          ;
+;     plain             ; 24                          ;
+; cycloneiii_io_obuf    ; 3                           ;
+; cycloneiii_lcell_comb ; 142                         ;
+;     arith             ; 28                          ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 114                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 31                          ;
+;         4 data inputs ; 57                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.96                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+    Info: Processing started: Thu Jul 18 06:45:30 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LogicalStep_Lab4 -c LogicalStep_Lab4_top
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file logicalstep_lab4_top.vhd
+    Info (12022): Found design unit 1: LogicalStep_Lab4_top-SimpleCircuit File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 20
+    Info (12023): Found entity 1: LogicalStep_Lab4_top File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file segment7_mux.vhd
+    Info (12022): Found design unit 1: segment7_mux-syn File: N:/ECE124/Lab 4/segment7_mux.vhd Line: 67
+    Info (12023): Found entity 1: segment7_mux File: N:/ECE124/Lab 4/segment7_mux.vhd Line: 52
+Info (12021): Found 2 design units, including 1 entities, in source file sevensegment.vhd
+    Info (12022): Found design unit 1: SevenSegment-Behavioral File: N:/ECE124/Lab 4/SevenSegment.vhd Line: 17
+    Info (12023): Found entity 1: SevenSegment File: N:/ECE124/Lab 4/SevenSegment.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file compx4.vhd
+    Info (12022): Found design unit 1: Compx4-comp_main_logic File: N:/ECE124/Lab 4/compx4.vhd Line: 15
+    Info (12023): Found entity 1: Compx4 File: N:/ECE124/Lab 4/compx4.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file compx1.vhd
+    Info (12022): Found design unit 1: Compx1-comp_logic File: N:/ECE124/Lab 4/compx1.vhd Line: 16
+    Info (12023): Found entity 1: Compx1 File: N:/ECE124/Lab 4/compx1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bidir_shift_reg.vhd
+    Info (12022): Found design unit 1: Bidir_shift_reg-one File: N:/ECE124/Lab 4/Bidir_shift_reg.vhd Line: 15
+    Info (12023): Found entity 1: Bidir_shift_reg File: N:/ECE124/Lab 4/Bidir_shift_reg.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file u_d_bin_counter8bit.vhd
+    Info (12022): Found design unit 1: U_D_Bin_Counter8bit-one File: N:/ECE124/Lab 4/U_D_Bin_Counter8bit.vhd Line: 15
+    Info (12023): Found entity 1: U_D_Bin_Counter8bit File: N:/ECE124/Lab 4/U_D_Bin_Counter8bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file u_d_bin_counter4bit.vhd
+    Info (12022): Found design unit 1: U_D_Bin_Counter4bit-one File: N:/ECE124/Lab 4/U_D_Bin_Counter4bit.vhd Line: 15
+    Info (12023): Found entity 1: U_D_Bin_Counter4bit File: N:/ECE124/Lab 4/U_D_Bin_Counter4bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mealy_sm.vhd
+    Info (12022): Found design unit 1: MEALY_SM-SM File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 13
+    Info (12023): Found entity 1: MEALY_SM File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file moore_sm.vhd
+    Info (12022): Found design unit 1: MOORE_SM-SM File: N:/ECE124/Lab 4/Moore_SM.vhd Line: 13
+    Info (12023): Found entity 1: MOORE_SM File: N:/ECE124/Lab 4/Moore_SM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file selector_mux.vhd
+    Info (12022): Found design unit 1: selector_mux-logic File: N:/ECE124/Lab 4/selector_mux.vhd Line: 23
+    Info (12023): Found entity 1: selector_mux File: N:/ECE124/Lab 4/selector_mux.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/errorflash.vhd
+    Info (12022): Found design unit 1: Error_SM-errorcode File: N:/ECE124/Lab 4/output_files/ErrorFlash.vhd Line: 29
+    Info (12023): Found entity 1: Error_SM File: N:/ECE124/Lab 4/output_files/ErrorFlash.vhd Line: 5
+Info (12021): Found 8 design units, including 4 entities, in source file vhdl1.vhd
+    Info (12022): Found design unit 1: vhdl-SM File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 14
+    Info (12022): Found design unit 2: abcd-SM File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 217
+    Info (12022): Found design unit 3: ghj-SM File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 421
+    Info (12022): Found design unit 4: dadada-SM File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 606
+    Info (12023): Found entity 1: vhdl File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 5
+    Info (12023): Found entity 2: abcd File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 208
+    Info (12023): Found entity 3: ghj File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 412
+    Info (12023): Found entity 4: dadada File: N:/ECE124/Lab 4/Vhdl1.vhd Line: 597
+Info (12127): Elaborating entity "LogicalStep_Lab4_top" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "leds[2..1]" at LogicalStep_Lab4_top.vhd(13) File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 13
+Info (12128): Elaborating entity "U_D_Bin_Counter4bit" for hierarchy "U_D_Bin_Counter4bit:INST1" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 202
+Info (12128): Elaborating entity "Compx4" for hierarchy "Compx4:INST2" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 203
+Info (12128): Elaborating entity "Compx1" for hierarchy "Compx4:INST2|Compx1:INST1" File: N:/ECE124/Lab 4/compx4.vhd Line: 45
+Info (12128): Elaborating entity "MOORE_SM" for hierarchy "MOORE_SM:INST6" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 208
+Info (12128): Elaborating entity "Bidir_shift_reg" for hierarchy "Bidir_shift_reg:INST7" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 209
+Warning (12125): Using design file moore_sm2.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: MOORE_SM2-SM2 File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 13
+    Info (12023): Found entity 1: MOORE_SM2 File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 5
+Info (12128): Elaborating entity "MOORE_SM2" for hierarchy "MOORE_SM2:INST8" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 211
+Warning (10631): VHDL Process Statement warning at moore_sm2.vhd(46): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Warning (10492): VHDL Process Statement warning at moore_sm2.vhd(82): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at moore_sm2.vhd(82): signal "button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 82
+Warning (10631): VHDL Process Statement warning at moore_sm2.vhd(74): inferring latch(es) for signal or variable "led", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 74
+Info (10041): Inferred latch for "led" at moore_sm2.vhd(74) File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 74
+Info (10041): Inferred latch for "next_state.light_off" at moore_sm2.vhd(46) File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Info (10041): Inferred latch for "next_state.light_on" at moore_sm2.vhd(46) File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Info (10041): Inferred latch for "next_state.start" at moore_sm2.vhd(46) File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Info (12128): Elaborating entity "MEALY_SM" for hierarchy "MEALY_SM:INST5" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 214
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(39): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "Extender_en", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "clk_en_X", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "clk_en_Y", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "Xcount", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "Ycount", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Warning (10631): VHDL Process Statement warning at Mealy_SM.vhd(79): inferring latch(es) for signal or variable "ERROR_led", which holds its previous value in one or more paths through the process File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "ERROR_led" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "Ycount" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "Xcount" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "clk_en_Y" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "clk_en_X" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "Extender_en" at Mealy_SM.vhd(79) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 79
+Info (10041): Inferred latch for "next_state.ERROR" at Mealy_SM.vhd(39) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+Info (10041): Inferred latch for "next_state.STOP" at Mealy_SM.vhd(39) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+Info (10041): Inferred latch for "next_state.MOVE" at Mealy_SM.vhd(39) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+Info (10041): Inferred latch for "next_state.INIT" at Mealy_SM.vhd(39) File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+Info (12128): Elaborating entity "Error_SM" for hierarchy "Error_SM:INST9" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 216
+Info (12128): Elaborating entity "SevenSegment" for hierarchy "SevenSegment:INST11" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 219
+Info (12128): Elaborating entity "segment7_mux" for hierarchy "segment7_mux:INST13" File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 222
+Warning (14026): LATCH primitive "MOORE_SM2:INST8|next_state.light_on_116" is permanently enabled File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Warning (14026): LATCH primitive "MOORE_SM2:INST8|next_state.light_off_99" is permanently enabled File: N:/ECE124/Lab 4/moore_sm2.vhd Line: 46
+Warning (13012): Latch MEALY_SM:INST5|Ycount has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pb[2] File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 11
+Warning (13012): Latch MEALY_SM:INST5|Xcount has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pb[3] File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 11
+Warning (13012): Latch MEALY_SM:INST5|next_state.ERROR_200 has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal MOORE_SM:INST6|current_state.Start File: N:/ECE124/Lab 4/Moore_SM.vhd Line: 18
+Warning (13012): Latch MEALY_SM:INST5|next_state.MOVE_226 has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal MEALY_SM:INST5|current_state.MOVE File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 17
+Warning (13012): Latch MEALY_SM:INST5|next_state.STOP_213 has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal MEALY_SM:INST5|current_state.MOVE File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 17
+Warning (13012): Latch MEALY_SM:INST5|next_state.INIT_239 has unsafe behavior File: N:/ECE124/Lab 4/Mealy_SM.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Compx4:INST2|AEQB File: N:/ECE124/Lab 4/compx4.vhd Line: 9
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "leds[1]" is stuck at GND File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 13
+    Warning (13410): Pin "leds[2]" is stuck at GND File: N:/ECE124/Lab 4/LogicalStep_Lab4_top.vhd Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 171 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 140 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 4992 megabytes
+    Info: Processing ended: Thu Jul 18 06:45:44 2019
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:23
+
+

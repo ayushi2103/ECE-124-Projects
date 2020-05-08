@@ -1,0 +1,35 @@
+
+State Machine - |LogicalStep_Lab4_top|Error_SM:INST10|current_state
+Name current_state.error_off current_state.error_on current_state.start 
+current_state.start 0 0 0 
+current_state.error_on 0 1 1 
+current_state.error_off 1 0 1 
+
+State Machine - |LogicalStep_Lab4_top|Error_SM:INST9|current_state
+Name current_state.error_off current_state.error_on current_state.start 
+current_state.start 0 0 0 
+current_state.error_on 0 1 1 
+current_state.error_off 1 0 1 
+
+State Machine - |LogicalStep_Lab4_top|MEALY_SM:INST5|current_state
+Name current_state.ERROR current_state.STOP current_state.MOVE current_state.INIT 
+current_state.INIT 0 0 0 0 
+current_state.MOVE 0 0 1 1 
+current_state.STOP 0 1 0 1 
+current_state.ERROR 1 0 0 1 
+
+State Machine - |LogicalStep_Lab4_top|MOORE_SM2:INST8|current_state
+Name current_state.light_off current_state.light_on current_state.start 
+current_state.start 0 0 0 
+current_state.light_on 0 1 1 
+current_state.light_off 1 0 1 
+
+State Machine - |LogicalStep_Lab4_top|MOORE_SM:INST6|current_state
+Name current_state.Retracted current_state.Retracter_hold current_state.Retracting current_state.Extended current_state.Extender_hold current_state.Extending current_state.Start 
+current_state.Start 0 0 0 0 0 0 0 
+current_state.Extending 0 0 0 0 0 1 1 
+current_state.Extender_hold 0 0 0 0 1 0 1 
+current_state.Extended 0 0 0 1 0 0 1 
+current_state.Retracting 0 0 1 0 0 0 1 
+current_state.Retracter_hold 0 1 0 0 0 0 1 
+current_state.Retracted 1 0 0 0 0 0 1 

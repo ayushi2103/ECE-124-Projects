@@ -1,0 +1,520 @@
+|LogicalStep_Lab4_top
+clkin_50 => segment7_mux:INST13.clk
+clkin_50 => bin_counter[0].CLK
+clkin_50 => bin_counter[1].CLK
+clkin_50 => bin_counter[2].CLK
+clkin_50 => bin_counter[3].CLK
+clkin_50 => bin_counter[4].CLK
+clkin_50 => bin_counter[5].CLK
+clkin_50 => bin_counter[6].CLK
+clkin_50 => bin_counter[7].CLK
+clkin_50 => bin_counter[8].CLK
+clkin_50 => bin_counter[9].CLK
+clkin_50 => bin_counter[10].CLK
+clkin_50 => bin_counter[11].CLK
+clkin_50 => bin_counter[12].CLK
+clkin_50 => bin_counter[13].CLK
+clkin_50 => bin_counter[14].CLK
+clkin_50 => bin_counter[15].CLK
+clkin_50 => bin_counter[16].CLK
+clkin_50 => bin_counter[17].CLK
+clkin_50 => bin_counter[18].CLK
+clkin_50 => bin_counter[19].CLK
+clkin_50 => bin_counter[20].CLK
+clkin_50 => bin_counter[21].CLK
+clkin_50 => bin_counter[22].CLK
+clkin_50 => bin_counter[23].CLK
+clkin_50 => bin_counter[24].CLK
+clkin_50 => bin_counter[25].CLK
+rst_n => U_D_Bin_Counter4bit:INST1.RESET_n
+rst_n => U_D_Bin_Counter4bit:INST3.RESET_n
+rst_n => MOORE_SM:INST6.rst_n
+rst_n => Bidir_shift_reg:INST7.RESET_n
+rst_n => MOORE_SM2:INST8.rst_n
+rst_n => MEALY_SM:INST5.rst_n
+rst_n => Error_SM:INST9.rst_n
+rst_n => Error_SM:INST10.rst_n
+pb[0] => MOORE_SM2:INST8.button
+pb[1] => MOORE_SM:INST6.Extend_tog
+pb[2] => MEALY_SM:INST5.Y_MOTION
+pb[2] => Y_OUT[3].OUTPUTSELECT
+pb[2] => Y_OUT[2].OUTPUTSELECT
+pb[2] => Y_OUT[1].OUTPUTSELECT
+pb[2] => Y_OUT[0].OUTPUTSELECT
+pb[3] => MEALY_SM:INST5.X_MOTION
+pb[3] => X_OUT[3].OUTPUTSELECT
+pb[3] => X_OUT[2].OUTPUTSELECT
+pb[3] => X_OUT[1].OUTPUTSELECT
+pb[3] => X_OUT[0].OUTPUTSELECT
+sw[0] => Y_OUT[0].DATAA
+sw[0] => Compx4:INST4.inp_B[0]
+sw[1] => Y_OUT[1].DATAA
+sw[1] => Compx4:INST4.inp_B[1]
+sw[2] => Y_OUT[2].DATAA
+sw[2] => Compx4:INST4.inp_B[2]
+sw[3] => Y_OUT[3].DATAA
+sw[3] => Compx4:INST4.inp_B[3]
+sw[4] => X_OUT[0].DATAA
+sw[4] => Compx4:INST2.inp_B[0]
+sw[5] => X_OUT[1].DATAA
+sw[5] => Compx4:INST2.inp_B[1]
+sw[6] => X_OUT[2].DATAA
+sw[6] => Compx4:INST2.inp_B[2]
+sw[7] => X_OUT[3].DATAA
+sw[7] => Compx4:INST2.inp_B[3]
+leds[0] <= MEALY_SM:INST5.ERROR_led
+leds[1] <= <GND>
+leds[2] <= <GND>
+leds[3] <= MOORE_SM2:INST8.led
+leds[4] <= Bidir_shift_reg:INST7.REG_BITS[0]
+leds[5] <= Bidir_shift_reg:INST7.REG_BITS[1]
+leds[6] <= Bidir_shift_reg:INST7.REG_BITS[2]
+leds[7] <= Bidir_shift_reg:INST7.REG_BITS[3]
+seg7_data[0] <= segment7_mux:INST13.DOUT[0]
+seg7_data[1] <= segment7_mux:INST13.DOUT[1]
+seg7_data[2] <= segment7_mux:INST13.DOUT[2]
+seg7_data[3] <= segment7_mux:INST13.DOUT[3]
+seg7_data[4] <= segment7_mux:INST13.DOUT[4]
+seg7_data[5] <= segment7_mux:INST13.DOUT[5]
+seg7_data[6] <= segment7_mux:INST13.DOUT[6]
+seg7_char1 <= segment7_mux:INST13.DIG2
+seg7_char2 <= segment7_mux:INST13.DIG1
+
+
+|LogicalStep_Lab4_top|U_D_Bin_Counter4bit:INST1
+CLK => ud_bin_counter[0].CLK
+CLK => ud_bin_counter[1].CLK
+CLK => ud_bin_counter[2].CLK
+CLK => ud_bin_counter[3].CLK
+RESET_n => ud_bin_counter[0].ACLR
+RESET_n => ud_bin_counter[1].ACLR
+RESET_n => ud_bin_counter[2].ACLR
+RESET_n => ud_bin_counter[3].ACLR
+CLK_EN => process_0.IN0
+CLK_EN => process_0.IN0
+UP1_DOWN0 => process_0.IN1
+UP1_DOWN0 => process_0.IN1
+COUNTER_BITS[0] <= ud_bin_counter[0].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[1] <= ud_bin_counter[1].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[2] <= ud_bin_counter[2].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[3] <= ud_bin_counter[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST2
+inp_A[0] => Compx1:INST4.A
+inp_A[1] => Compx1:INST3.A
+inp_A[2] => Compx1:INST2.A
+inp_A[3] => Compx1:INST1.A
+inp_B[0] => Compx1:INST4.B
+inp_B[1] => Compx1:INST3.B
+inp_B[2] => Compx1:INST2.B
+inp_B[3] => Compx1:INST1.B
+AGTB <= AGTB.DB_MAX_OUTPUT_PORT_TYPE
+AEQB <= AEQB.DB_MAX_OUTPUT_PORT_TYPE
+ALTB <= ALTB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST2|Compx1:INST1
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST2|Compx1:INST2
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST2|Compx1:INST3
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST2|Compx1:INST4
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|U_D_Bin_Counter4bit:INST3
+CLK => ud_bin_counter[0].CLK
+CLK => ud_bin_counter[1].CLK
+CLK => ud_bin_counter[2].CLK
+CLK => ud_bin_counter[3].CLK
+RESET_n => ud_bin_counter[0].ACLR
+RESET_n => ud_bin_counter[1].ACLR
+RESET_n => ud_bin_counter[2].ACLR
+RESET_n => ud_bin_counter[3].ACLR
+CLK_EN => process_0.IN0
+CLK_EN => process_0.IN0
+UP1_DOWN0 => process_0.IN1
+UP1_DOWN0 => process_0.IN1
+COUNTER_BITS[0] <= ud_bin_counter[0].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[1] <= ud_bin_counter[1].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[2] <= ud_bin_counter[2].DB_MAX_OUTPUT_PORT_TYPE
+COUNTER_BITS[3] <= ud_bin_counter[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST4
+inp_A[0] => Compx1:INST4.A
+inp_A[1] => Compx1:INST3.A
+inp_A[2] => Compx1:INST2.A
+inp_A[3] => Compx1:INST1.A
+inp_B[0] => Compx1:INST4.B
+inp_B[1] => Compx1:INST3.B
+inp_B[2] => Compx1:INST2.B
+inp_B[3] => Compx1:INST1.B
+AGTB <= AGTB.DB_MAX_OUTPUT_PORT_TYPE
+AEQB <= AEQB.DB_MAX_OUTPUT_PORT_TYPE
+ALTB <= ALTB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST4|Compx1:INST1
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST4|Compx1:INST2
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST4|Compx1:INST3
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Compx4:INST4|Compx1:INST4
+A => GT.IN0
+A => EQ.IN0
+A => LT.IN0
+B => EQ.IN1
+B => LT.IN1
+B => GT.IN1
+GT <= GT.DB_MAX_OUTPUT_PORT_TYPE
+EQ <= EQ.DB_MAX_OUTPUT_PORT_TYPE
+LT <= LT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|MOORE_SM:INST6
+clk_input => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+Extender_en => Transition_Section.IN0
+Extend_tog => next_state.DATAA
+Extend_tog => next_state.DATAA
+Extend_tog => Selector1.IN3
+Extend_tog => Selector2.IN3
+Extend_tog => Selector4.IN3
+Extend_tog => Transition_Section.IN1
+Extend_tog => next_state.DATAA
+Extend_tog => Selector0.IN1
+Extend_tog => Selector3.IN1
+Extend_tog => next_state.DATAA
+Extend_tog => Selector3.IN2
+leds[0] => Equal0.IN3
+leds[0] => Equal1.IN3
+leds[1] => Equal0.IN2
+leds[1] => Equal1.IN2
+leds[2] => Equal0.IN1
+leds[2] => Equal1.IN1
+leds[3] => Equal0.IN0
+leds[3] => Equal1.IN0
+shift_reg_en <= shift_reg_en.DB_MAX_OUTPUT_PORT_TYPE
+shift_reg_dir <= shift_reg_dir.DB_MAX_OUTPUT_PORT_TYPE
+Extender_out <= Extender_out.DB_MAX_OUTPUT_PORT_TYPE
+Grappler_en <= Grappler_en.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Bidir_shift_reg:INST7
+CLK => sreg[0].CLK
+CLK => sreg[1].CLK
+CLK => sreg[2].CLK
+CLK => sreg[3].CLK
+RESET_n => sreg[0].ACLR
+RESET_n => sreg[1].ACLR
+RESET_n => sreg[2].ACLR
+RESET_n => sreg[3].ACLR
+CLK_EN => sreg[3].ENA
+CLK_EN => sreg[2].ENA
+CLK_EN => sreg[1].ENA
+CLK_EN => sreg[0].ENA
+LEFT0_RIGHT1 => sreg.OUTPUTSELECT
+LEFT0_RIGHT1 => sreg.OUTPUTSELECT
+LEFT0_RIGHT1 => sreg.OUTPUTSELECT
+LEFT0_RIGHT1 => sreg.OUTPUTSELECT
+REG_BITS[0] <= sreg[0].DB_MAX_OUTPUT_PORT_TYPE
+REG_BITS[1] <= sreg[1].DB_MAX_OUTPUT_PORT_TYPE
+REG_BITS[2] <= sreg[2].DB_MAX_OUTPUT_PORT_TYPE
+REG_BITS[3] <= sreg[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|MOORE_SM2:INST8
+clk_input => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+button => Transition_Section.IN0
+button => Decoder_Section.IN0
+enable => Decoder_Section.IN1
+enable => Transition_Section.IN1
+led <= led$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|MEALY_SM:INST5
+clk_input => current_state~1.DATAIN
+X_MOTION => Transition_Section.IN0
+X_MOTION => Decoder_Section.IN0
+X_MOTION => Decoder_Section.IN0
+X_MOTION => Decoder_Section.IN0
+X_MOTION => Transition_Section.IN0
+Y_MOTION => Transition_Section.IN1
+Y_MOTION => Decoder_Section.IN0
+Y_MOTION => Decoder_Section.IN0
+Y_MOTION => Decoder_Section.IN0
+Y_MOTION => Transition_Section.IN1
+Extender_Out => next_state.ERROR.IN1
+Extender_Out => Selector2.IN0
+Extender_Out => next_state.STOP.OUTPUTSELECT
+Extender_Out => next_state.MOVE.OUTPUTSELECT
+Extender_Out => ERROR_led$latch.DATAIN
+Extender_Out => Transition_Section.IN1
+Extender_Out => Selector4.IN0
+X_EQ => Transition_Section.IN1
+X_EQ => Decoder_Section.IN1
+X_EQ => Decoder_Section.IN0
+X_EQ => Transition_Section.IN0
+X_EQ => Transition_Section.IN1
+X_GT => Decoder_Section.IN1
+X_LT => Decoder_Section.IN1
+Y_EQ => Transition_Section.IN1
+Y_EQ => Decoder_Section.IN1
+Y_EQ => Decoder_Section.IN1
+Y_EQ => Transition_Section.IN1
+Y_EQ => Transition_Section.IN1
+Y_GT => Decoder_Section.IN1
+Y_LT => Decoder_Section.IN1
+rst_n => current_state~3.DATAIN
+clk_en_X <= clk_en_X$latch.DB_MAX_OUTPUT_PORT_TYPE
+clk_en_Y <= clk_en_Y$latch.DB_MAX_OUTPUT_PORT_TYPE
+Xcount <= Xcount$latch.DB_MAX_OUTPUT_PORT_TYPE
+Ycount <= Ycount$latch.DB_MAX_OUTPUT_PORT_TYPE
+ERROR_led <= ERROR_led$latch.DB_MAX_OUTPUT_PORT_TYPE
+Extender_en <= Extender_en$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Error_SM:INST9
+clk_input => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+INPUT1[0] => OUTPUT.DATAB
+INPUT1[1] => OUTPUT.DATAB
+INPUT1[2] => OUTPUT.DATAB
+INPUT1[3] => OUTPUT.DATAB
+INPUT1[4] => OUTPUT.DATAB
+INPUT1[5] => OUTPUT.DATAB
+INPUT1[6] => OUTPUT.DATAB
+INPUT2[0] => OUTPUT.DATAA
+INPUT2[1] => OUTPUT.DATAA
+INPUT2[2] => OUTPUT.DATAA
+INPUT2[3] => OUTPUT.DATAA
+INPUT2[4] => OUTPUT.DATAA
+INPUT2[5] => OUTPUT.DATAA
+INPUT2[6] => OUTPUT.DATAA
+Selector => next_state.error_on.DATAB
+Selector => next_state.error_off.DATAA
+Selector => current_state.start.DATAIN
+OUTPUT[0] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[1] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[2] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[3] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[4] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[5] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[6] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|Error_SM:INST10
+clk_input => current_state~1.DATAIN
+rst_n => current_state~3.DATAIN
+INPUT1[0] => OUTPUT.DATAB
+INPUT1[1] => OUTPUT.DATAB
+INPUT1[2] => OUTPUT.DATAB
+INPUT1[3] => OUTPUT.DATAB
+INPUT1[4] => OUTPUT.DATAB
+INPUT1[5] => OUTPUT.DATAB
+INPUT1[6] => OUTPUT.DATAB
+INPUT2[0] => OUTPUT.DATAA
+INPUT2[1] => OUTPUT.DATAA
+INPUT2[2] => OUTPUT.DATAA
+INPUT2[3] => OUTPUT.DATAA
+INPUT2[4] => OUTPUT.DATAA
+INPUT2[5] => OUTPUT.DATAA
+INPUT2[6] => OUTPUT.DATAA
+Selector => next_state.error_on.DATAB
+Selector => next_state.error_off.DATAA
+Selector => current_state.start.DATAIN
+OUTPUT[0] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[1] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[2] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[3] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[4] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[5] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[6] <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|SevenSegment:INST11
+hex[0] => Mux0.IN19
+hex[0] => Mux1.IN19
+hex[0] => Mux2.IN19
+hex[0] => Mux3.IN19
+hex[0] => Mux4.IN19
+hex[0] => Mux5.IN19
+hex[0] => Mux6.IN19
+hex[1] => Mux0.IN18
+hex[1] => Mux1.IN18
+hex[1] => Mux2.IN18
+hex[1] => Mux3.IN18
+hex[1] => Mux4.IN18
+hex[1] => Mux5.IN18
+hex[1] => Mux6.IN18
+hex[2] => Mux0.IN17
+hex[2] => Mux1.IN17
+hex[2] => Mux2.IN17
+hex[2] => Mux3.IN17
+hex[2] => Mux4.IN17
+hex[2] => Mux5.IN17
+hex[2] => Mux6.IN17
+hex[3] => Mux0.IN16
+hex[3] => Mux1.IN16
+hex[3] => Mux2.IN16
+hex[3] => Mux3.IN16
+hex[3] => Mux4.IN16
+hex[3] => Mux5.IN16
+hex[3] => Mux6.IN16
+sevenseg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|SevenSegment:INST12
+hex[0] => Mux0.IN19
+hex[0] => Mux1.IN19
+hex[0] => Mux2.IN19
+hex[0] => Mux3.IN19
+hex[0] => Mux4.IN19
+hex[0] => Mux5.IN19
+hex[0] => Mux6.IN19
+hex[1] => Mux0.IN18
+hex[1] => Mux1.IN18
+hex[1] => Mux2.IN18
+hex[1] => Mux3.IN18
+hex[1] => Mux4.IN18
+hex[1] => Mux5.IN18
+hex[1] => Mux6.IN18
+hex[2] => Mux0.IN17
+hex[2] => Mux1.IN17
+hex[2] => Mux2.IN17
+hex[2] => Mux3.IN17
+hex[2] => Mux4.IN17
+hex[2] => Mux5.IN17
+hex[2] => Mux6.IN17
+hex[3] => Mux0.IN16
+hex[3] => Mux1.IN16
+hex[3] => Mux2.IN16
+hex[3] => Mux3.IN16
+hex[3] => Mux4.IN16
+hex[3] => Mux5.IN16
+hex[3] => Mux6.IN16
+sevenseg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sevenseg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab4_top|segment7_mux:INST13
+clk => \clk_proc:COUNT[0].CLK
+clk => \clk_proc:COUNT[1].CLK
+clk => \clk_proc:COUNT[2].CLK
+clk => \clk_proc:COUNT[3].CLK
+clk => \clk_proc:COUNT[4].CLK
+clk => \clk_proc:COUNT[5].CLK
+clk => \clk_proc:COUNT[6].CLK
+clk => \clk_proc:COUNT[7].CLK
+clk => \clk_proc:COUNT[8].CLK
+clk => \clk_proc:COUNT[9].CLK
+clk => \clk_proc:COUNT[10].CLK
+DIN2[0] => DOUT_TEMP.DATAB
+DIN2[1] => DOUT_TEMP[1].DATAB
+DIN2[2] => DOUT_TEMP.DATAB
+DIN2[3] => DOUT_TEMP.DATAB
+DIN2[4] => DOUT_TEMP.DATAB
+DIN2[5] => DOUT_TEMP[5].DATAB
+DIN2[6] => DOUT_TEMP[6].DATAB
+DIN1[0] => DOUT_TEMP.DATAA
+DIN1[1] => DOUT_TEMP[1].DATAA
+DIN1[2] => DOUT_TEMP.DATAA
+DIN1[3] => DOUT_TEMP.DATAA
+DIN1[4] => DOUT_TEMP.DATAA
+DIN1[5] => DOUT_TEMP[5].DATAA
+DIN1[6] => DOUT_TEMP[6].DATAA
+DOUT[0] <= DOUT_TEMP.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT_TEMP.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT_TEMP.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[4] <= DOUT_TEMP.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[5] <= DOUT[5].DB_MAX_OUTPUT_PORT_TYPE
+DOUT[6] <= DOUT[6].DB_MAX_OUTPUT_PORT_TYPE
+DIG2 <= \clk_proc:COUNT[10].DB_MAX_OUTPUT_PORT_TYPE
+DIG1 <= \clk_proc:COUNT[10].DB_MAX_OUTPUT_PORT_TYPE
+
+
