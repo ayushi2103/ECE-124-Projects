@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Jul 04 07:14:06 2019
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+Revision Name : LogicalStep_Lab3_top
+Top-level Entity Name : LogicalStep_Lab3_top
+Family : MAX 10
+Total logic elements : 58
+    Total combinational functions : 58
+    Dedicated logic registers : 11
+Total registers : 11
+Total pins : 30
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

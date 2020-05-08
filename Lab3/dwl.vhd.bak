@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity dwl is
+	port(
+			AGTB				: in std_logic; 
+			AEQB				: in std_logic;
+			ALTB				: in std_logic;
+			door				: in std_logic;
+			window			: in std_logic;
+			leds_out 		: out std_logic_vector(5 downto 0)
+	
+	);
+end entity dwl;
+
+architecture logic_dwl of dwl is
+	 
+begin
+
+	leds_out(2 downto 2) <= AGTB AND window AND door;
+	leds_out(1 downto 1) <= AEQB;
+	leds_out(0 downto 0) <= ALTB AND window AND door;
+	leds_out(3 downto 3) <= (AGTB OR ALTB) AND window AND door;
+	leds_out(4 downto 4) <= NOT(door);
+	leds_out(5 downto 5) <= NOT(window);
+
+end logic_dwl;

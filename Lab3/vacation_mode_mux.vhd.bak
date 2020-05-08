@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity vacation_mode is
+   port (
+			pb_button  		: in std_logic;--pb(3) button
+			desired_temp		: in std_logic_vector(3 downto 0);
+			fixed_setting		: out std_logic_vector(3 downto 0)
+        );
+end entity vacation_mode;
+
+architecture logic_mux of vacation_mode is
+	 
+begin
+
+with pb_button select
+fixed_setting <= desired_temp when '1',--desired temp from switch
+						"0100" when '0',--Default vacation temp
+						"0000" when others;	
+
+end logic_mux;
