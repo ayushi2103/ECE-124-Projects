@@ -1,2 +1,2 @@
-# ECE-124-Projects-
+# ECE-124-Projects
 Digital Circuits and Systems
